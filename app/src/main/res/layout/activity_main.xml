@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#edebeb"
+    android:orientation="vertical">
+
+    <LinearLayout android:id="@+id/linearLayoutData"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp">
+
+        <TextView android:id="@+id/textView2048"
+            android:text="@string/_2048"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_width="120dp"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginRight="60dp"
+            android:layout_marginEnd="60dp" />
+
+        <LinearLayout android:id="@+id/linearLayoutScore"
+            android:layout_width="60dp"
+            android:layout_height="80dp"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:background="#d1cdcd"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp">
+
+            <TextView android:id="@+id/textViewScore"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="@string/score"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textStyle="bold|italic"/>
+
+            <TextView android:id="@+id/textViewScoreNumber"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text=""
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/linearLayoutHighScore"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:background="#d1cdcd">
+
+            <TextView android:id="@+id/textViewHighScore"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="@string/high_score"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textStyle="bold|italic"/>
+
+            <TextView android:id="@+id/textViewHighScoreNumber"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text=""
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/linearLayoutCommands"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/imageButtonHome"
+            android:layout_width="42dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="145dp"
+            android:background="@drawable/home" />
+
+        <ImageButton android:id="@+id/imageButtonStepBack"
+            android:layout_height="45dp"
+            android:layout_width="45dp"
+            android:background="@drawable/step_back"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:onClick="clickStepBackButton"/>
+
+        <ImageButton
+            android:id="@+id/imageButtonRestart"
+            android:layout_height="45dp"
+            android:layout_width="45dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/restart"
+            android:onClick="clickRestartButton"/>
+
+
+
+    </LinearLayout>
+
+    <GridLayout android:id="@+id/gridLayoutGame"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:layout_gravity="center"
+        android:rowCount="4"
+        android:columnCount="4"
+        android:layout_marginTop="10dp"
+        android:background="#9c9c9c">
+
+        <ImageView
+            android:id="@+id/button1"
+            style="@style/ImageViewNumber" />
+
+        <ImageView android:id="@+id/button2"
+            style="@style/ImageViewNumber"/>
+
+        <ImageView android:id="@+id/button3"
+            style="@style/ImageViewNumber"/>
+
+        <ImageView android:id="@+id/button4"
+            style="@style/ImageViewNumber"/>
+
+        <ImageView android:id="@+id/button5"
+            style="@style/ImageViewNumber"/>
+
+        <ImageView android:id="@+id/button6"
+            style="@style/ImageViewNumber"/>
+
+        <ImageView android:id="@+id/button7"
+            style="@style/ImageViewNumber"/>
+
+        <ImageView android:id="@+id/button8"
+            style="@style/ImageViewNumber"/>
+
+        <ImageView android:id="@+id/button9"
+            style="@style/ImageViewNumber"/>
+
+        <ImageView android:id="@+id/button10"
+            style="@style/ImageViewNumber"/>
+
+        <ImageView android:id="@+id/button11"
+            style="@style/ImageViewNumber"/>
+
+        <ImageView android:id="@+id/button12"
+            style="@style/ImageViewNumber"/>
+
+        <ImageView android:id="@+id/button13"
+            style="@style/ImageViewNumber"/>
+
+        <ImageView android:id="@+id/button14"
+            style="@style/ImageViewNumber"/>
+
+        <ImageView android:id="@+id/button15"
+            style="@style/ImageViewNumber"/>
+
+        <ImageView android:id="@+id/button16"
+            style="@style/ImageViewNumber"/>
+
+    </GridLayout>
+
+</LinearLayout>
