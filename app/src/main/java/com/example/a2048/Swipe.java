@@ -1,28 +1,61 @@
 package com.example.a2048;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.widget.TextView;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class Swipe
 {
     private int intArrayCards[][];
     private TextView textViewScore;
+    private TextView textViewHighScore;
 
     private int row , column;
     private int score = 0;
+    private int highScore = 0;
     private int NUMBER_OF_ROWS_AND_COLUMNS;
 
     private DataHelper dataHelper;
     private Moving moving;
 
+    private Activity activity;
 
-    public Swipe(int[][] intArrayCards, TextView textViewScore, DataHelper dataHelper, Moving moving)
+    private SharedPreferences pref;
+    private SharedPreferences.Editor editor;
+
+    public Swipe(int[][] intArrayCards,Activity activity, DataHelper dataHelper, Moving moving)
     {
         this.intArrayCards = intArrayCards;
-        this.textViewScore = textViewScore;
+        this.activity = activity;
+
         this.dataHelper = dataHelper;
         this.moving = moving;
 
+        this.textViewScore = activity.findViewById(R.id.textViewScoreNumber);
+        this.textViewHighScore = activity.findViewById(R.id.textViewHighScoreNumber);
+
+        initializeSharedPreference();
+        setHighScore();
+
         NUMBER_OF_ROWS_AND_COLUMNS = intArrayCards.length;
+
+
+    }
+
+    private void initializeSharedPreference()
+    {
+        pref = activity.getSharedPreferences("MyPref", MODE_PRIVATE);
+        editor = pref.edit();
+    }
+
+    private void setHighScore()
+    {
+        String score = pref.getString("HighScore" , "No");
+        textViewHighScore.setText(score);
+        highScore = Integer.getInteger(score);
     }
 
     private boolean over = false;
@@ -350,6 +383,14 @@ public class Swipe
     {
         score += (number * 2);
         textViewScore.setText(Integer.toString(score));
+
+        if(score > highScore)
+        {
+            highScore = score;
+            textViewHighScore.setText(String.valueOf(highScore));
+            editor.putString("HighScore" ,  textViewHighScore.getText().toString());
+            editor.apply();
+        }
     }
 
 

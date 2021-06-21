@@ -23,6 +23,7 @@ public class Game
     // activity and views
     private Activity activity;
     private TextView textViewScore;
+    private TextView textViewHighScore;
 
     // listener
     private OnSwipeTouchListener onSwipeTouchListener;
@@ -112,6 +113,7 @@ public class Game
     private void initializeTextView()
     {
         this.textViewScore = activity.findViewById(R.id.textViewScoreNumber);
+        this.textViewHighScore = activity.findViewById(R.id.textViewHighScoreNumber);
     }
 
 
@@ -126,7 +128,7 @@ public class Game
     {
         dataHelper = new DataHelper(intArrayCards , imageViewsNumbers);
         moving = new Moving(imageViewsNumbers);
-        swipe = new Swipe(intArrayCards , textViewScore , dataHelper , moving);
+        swipe = new Swipe(intArrayCards , activity, dataHelper , moving);
         cardsController = new CardsController(imageViewsNumbers , intArrayCards);
     }
 
